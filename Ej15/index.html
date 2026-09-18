@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style/styleej15.css">
+    <link rel="icon" type="image/png" href="recursos/banco.jpg">
+</head>
+
+<body>
+    <div class="layout">
+
+        <div class="contenedor">
+            <form id="form-producto">
+                <h1>Contactanos</h1>
+
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <span class="mensaje-campo" data-texto-ok="Nombre completo"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required>
+                    <span class="mensaje-campo" data-texto-ok="Apellido completo"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" required>
+                    <span class="mensaje-campo" data-texto-ok="Teléfono completo"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="mensaje-campo" data-texto-ok="Email válido"></span>
+                </div>
+
+                <div class="campo campo-grande">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    <span class="mensaje-campo" data-texto-ok="Mensaje listo"></span>
+                </div>
+                <button type="submit" class="boton">Enviar</button>
+            </form>
+        </div>
+
+        <div class="panel-info">
+            <!--No tiene funcionalidad-->
+            <h2>Contacto directo</h2>
+            <p><strong>Dirección:</strong> C. 15 1105, L6360 Gral. Pico, La Pampa</p>
+            <p><strong>Atención al Usuario / Reclamos:</strong><br>
+                <a href="mailto:sac@bancodelapampa.com.ar">sac@bancodelapampa.com.ar</a> 
+            </p>
+            <p><strong>Teléfono:</strong><br>
+                <a href="tel:08102222257">0810-222-2257</a>
+            </p>
+        </div>
+
+    </div>
+
+    <script src="script/scriptej15.js"></script>
+</body>
+
+</html>

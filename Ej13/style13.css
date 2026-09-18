@@ -1,0 +1,161 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    transition: background-image 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+}
+
+body.modo-ecuaciones{
+    background-image: url('recursos/fondo-ecuaciones.jpg');
+}
+body.modo-ecuaciones h1{
+    color: white;
+    text-shadow: 
+        0 0 8px rgba(0, 0, 0, 0.9),
+        0 0 16px rgba(0, 0, 0, 0.7),
+        2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+body.modo-ecuaciones main{
+    box-shadow: 
+        0 0 25px rgba(0, 0, 0, 0.8),
+        0 0 50px rgba(0, 0, 0, 0.6),
+        20px 10px 15px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, rgba(6, 34, 61, 0.97), rgba(30, 30, 47, 0.97), rgba(0, 0, 0, 0.97));
+}
+
+#contenedorEfectos{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.imagen-flotante{
+    position: absolute;
+    max-width: 120px;
+    max-height: 120px;
+    opacity: 0;
+    animation: aparecer 0.6s ease forwards;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: scale(0.3) rotate(-15deg);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+main{
+    background: linear-gradient(135deg, rgb(6, 34, 61), #1e1e2f, black);
+    padding: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 15px;
+    max-width: 380px;
+    margin: 0 auto;
+    box-shadow: 20px 10px 15px rgba(0, 0, 0, 0.6); /* offset-x: 12px (derecha), offset-y: 0, blur: 20px */
+}
+
+.pantalla{
+    display: flex;
+    flex-direction: column;
+}
+
+.visor-principal{
+    font-size: 28px;
+    min-height: 34px;
+    word-break: break-all;
+}
+
+.historial{
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    min-height: 18px;
+}
+
+h1{
+    color: rgb(10, 82, 82);
+    text-align: center;
+}
+
+.botonera{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap:12px;
+    margin-top: 16px;
+}
+
+.calculos{
+    color: white;
+    border-radius: 8px;
+    padding: 16px 20px;
+    width: 100%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.calculos.glass{
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.25),
+        rgba(255, 255, 255, 0.05)
+    ), rgb(52, 148, 174);
+    backdrop-filter: blur(6px) saturate(180%);
+    -webkit-backdrop-filter: blur(6px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.5), /* brillo superior, como un reflejo */
+        inset 0 -1px 4px rgba(0, 0, 0, 0.2); /* sombra interna abajo, da volumen */
+}
+
+
+.box{
+    color: white;
+    font-size: 22px;
+    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.box:active{
+    transform: scale(0.92); /* se achica un poco, como si lo hundieras */
+    box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.4); /* sombra hacia adentro, simula profundidad */
+}
+
+.numero{
+    background-color: rgb(140, 112, 162);
+    border-color: rgb(160, 132, 182);
+}
+
+
+.operacion{
+    background-color:rgb(167, 88, 88);
+    border-color: rgb(187, 108, 108);
+}
+
+.borrar{
+    background-color:rgb(162, 24, 24);
+    border-color: rgb(182, 44, 44);
+}
+
+.igual{
+    background-color:rgb(50, 211, 103);
+    border-color: rgb(142, 197, 160);
+}

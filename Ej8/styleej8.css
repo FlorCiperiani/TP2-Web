@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+    color: brown;
+    font-size: 30px;
+}
+
+h2{
+    font-size: 20px;
+    padding: 0 0 15px 15px ;
+}
+
+.texto{
+    text-align: center;
+    width: 550px;
+    margin: 0 auto;
+    padding: 10px 0 45px 0;
+}
+
+ul {
+    padding:0 0 0 15px;
+    margin-left: 0;
+    /* Evita que se desplace a la derecha */
+    text-align: left;
+    /* Alinea el texto a la izquierda dentro del aside */
+
+}
+
+.contenedor{
+    background-color: black;
+    color: aliceblue;
+}
+.contenedor2{
+    background-color: rgb(255, 196, 0);
+    color: rgb(0, 0, 0);
+}
+.contenedor3{
+    background-color: rgb(255, 15, 15);
+    color: aliceblue;
+}

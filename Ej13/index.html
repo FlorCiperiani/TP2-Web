@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "icon" type="image.png" href="recursos/calculadora.png">
+    <link rel="stylesheet" href="style13.css">
+    <title>Calculadora</title>
+</head>
+<body>
+    <h1>Calculadora Básica</h1>
+    <main>
+        <div id="pantalla" class="calculos glass">
+            <div id="historial" class="historial"></div>
+            <div id="visor" class="visor-principal"></div>
+        </div>
+        <div class="botonera">
+          
+            <button id= "borrar-entrada" class="borrar box">CE</button>
+            <button id= "borrar-calculos" class="borrar box">C</button>
+            <button class="operacion box">±</button>
+            <button class="operacion box">%</button>
+
+            <button class="numero box">7</button>
+            <button class="numero box">8</button>
+            <button class="numero box">9</button>
+            <button class="operacion box">÷</button>
+      
+            <button class="numero box">4</button>
+            <button class="numero box">5</button>
+            <button class="numero box">6</button>
+            <button class="operacion box">x</button>
+            
+            <button class="numero box">1</button>
+            <button class="numero box">2</button>
+            <button class="numero box">3</button>
+            <button class="operacion box">-</button>
+           
+            <button class="numero box">0</button>
+            <button class="numero box">.</button>
+            <button class="igual box">=</button>
+            <button class="operacion box">+</button>
+            
+        </div>
+    </main>
+    <div id="contenedorEfectos"></div>
+    <audio id="musicaEspecial" src="recursos/interstellar.mp3"></audio>
+    <script src="./script.js"></script>
+</body>
+</html>
