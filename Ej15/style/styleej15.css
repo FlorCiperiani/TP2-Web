@@ -1,56 +1,75 @@
 * {
     box-sizing: border-box;
 }
+/* nuevo */
+
+:root {
+    --verde-oscuro: #0f3d2e;
+    --verde-medio: #1f6b4f;
+    --lima: #c7e27b;
+    --lima-claro: #e6f2bd;
+    --blanco: #ffffff;
+    --texto: #16221c;
+}
+/* nuevo */
 body {
     margin: 0;
     min-height: 100vh;
     display: grid;
     place-items: center;
+    padding: 24px;
+    font-family: 'Segoe UI', 'Lucida Sans', Verdana, sans-serif;
+    color: var(--texto);
+    /* Si la imagen no carga, se ve igual un fondo lindo */
+    background: linear-gradient(135deg, #0f3d2e 0%, #1f6b4f 60%, #3f8f5f 100%);
+    position: relative;
+}
+/* nuevo */
+/* Imagen de fondo: el desenfoque leve y la capa de color esconden el pixelado */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -20px;
+    z-index: -2;
     background-image: url(../recursos/banco.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: blur(3px) saturate(1.1);
+}
+/* nuevo */
+/* Capa de color por encima de la imagen */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, rgba(15, 61, 46, 0.78), rgba(15, 61, 46, 0.35));
 }
 
+/* ---------- Layout general ---------- */
 .layout {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 20px;
 }
-
+/* nuevo */
+/* ---------- Formulario ---------- */
 .contenedor {
-    width: 700px;
-    padding: 20px;
-    border-radius: 12px;
-    background: rgba(199, 226, 123, 0.85);
-}
-
-.panel-info {
-    width: 260px;
-    height: 565px;
-    padding: 20px;
-    border-radius: 12px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.panel-info h2 {
-    margin: 0;
-}
-
-.panel-info a {
-    color: white;
-    font-weight: bold;
+    width: 620px;
+    padding: 28px;
+    border-radius: 16px;
+    background: rgba(230, 242, 189, 0.92);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
 }
 
 h1 {
     text-align: center;
     font-size: 36px;
     font-weight: 800;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    color: var(--verde-oscuro);
 }
 
 form {
@@ -67,28 +86,31 @@ form h1 {
     display: flex;
     flex-direction: column;
 }
-
+/* nuevo */
 .campo label {
     text-align: left;
     margin-bottom: 4px;
+    font-weight: 600;
+    color: var(--verde-oscuro);
 }
-
+/* nuevo */
 .campo input,
 .campo textarea {
     width: 100%;
-    padding: 8px;
-    border-radius: 4px;
-    border: none;
+    padding: 10px;
+    border-radius: 6px;
     border: 2px solid transparent;
-    /* lo que nos resaltara el campo*/
+    background: var(--blanco);
+    font-family: inherit;
+    font-size: 15px;
     transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
-/* lo que nos resaltara el campo*/
+/* nuevo */
 .campo input:hover,
 .campo textarea:hover {
     border-color: #999;
 }
-/* Lo que nos dara nuestro campo en verde para indicar que esta bien */
+/* nuevo */
 .campo input:focus,
 .campo textarea:focus {
     outline: none;
@@ -108,27 +130,234 @@ form h1 {
     padding: 14px 48px;
     font-size: 17px;
     color: white;
-    background-color: black;
+    background-color: var(--verde-oscuro);
     font-weight: bold;
     cursor: pointer;
     margin-top: 10px;
-    /* lo que nos resaltara el campo*/
     transition: background-color 0.25s ease, transform 0.15s ease;
 }
-/* lo que nos resaltara el campo*/
+/* nuevo */
 .boton:hover {
-    background-color: #333;
+    background-color: var(--verde-medio);
     transform: scale(1.03);
 }
+/* nuevo */
+.boton:focus-visible {
+    outline: 3px solid var(--lima);
+    outline-offset: 3px;
+}
+
 /* Cuando JS marca el campo como completo */
 .campo.completo input,
 .campo.completo textarea {
     border-color: #2ecc71;
     background-color: #eafbee;
 }
+/* nuevo */
 .mensaje-campo {
     font-size: 12px;
     color: #2e8b3d;
     min-height: 14px;
     margin-top: 4px;
+}
+/* nuevo */
+/* ---------- Panel de contacto ---------- */
+.panel-info {
+    width: 320px;
+    padding: 24px;
+    border-radius: 16px;
+    background: rgba(8, 30, 22, 0.78);
+    backdrop-filter: blur(6px);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+/* nuevo */
+.panel-info h2 {
+    margin: 0;
+    color: var(--lima);
+}
+/* nuevo */
+.panel-info p {
+    margin: 0;
+    line-height: 1.5;
+}
+/* nuevo */
+.panel-info a {
+    color: var(--lima-claro);
+    font-weight: bold;
+}
+/* nuevo */
+/* ---------- Publicidades (tus GIFs e imágenes) ---------- */
+.pagina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+/* nuevo */
+.ad {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 16px;
+    /* Si la imagen no carga, se ve este fondo en vez de un hueco */
+    background: linear-gradient(160deg, #d9ec97, #a9cf4e);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+/* nuevo */
+.ad img,
+.ad video {
+    position: absolute;
+    inset: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    display: block;
+    object-fit: cover;
+}
+/* nuevo */
+/* Cartelito chiquito para que se note que es publicidad */
+.ad::after {
+    content: "Publicidad";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    color: white;
+    background: rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+}
+/* nuevo */
+.ad:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+/* nuevo */
+.ad:focus-visible {
+    outline: 3px solid var(--lima);
+    outline-offset: 3px;
+}
+/* nuevo */
+/* Larga a la izquierda: se estira a la altura del formulario */
+.ad-lateral {
+    width: 360px;
+    flex-shrink: 0;
+}
+/* nuevo */
+/* Ancha abajo */
+.ad-inferior {
+    width: 400px;
+    height: 300px;
+}
+/* nuevo */
+/* ---------- Pop-up de la calculadora ---------- */
+.popup {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(5, 20, 14, 0.7);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+/* nuevo */
+.popup[hidden] {
+    display: none;
+}
+/* nuevo */
+.popup.visible {
+    opacity: 1;
+}
+/* nuevo */
+.popup-card {
+    position: relative;
+    width: 340px;
+    max-width: 100%;
+    padding: 28px 24px 24px;
+    border-radius: 20px;
+    text-align: center;
+    background: linear-gradient(170deg, #f3f9d9, #d9ec97);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+    transform: translateY(16px) scale(0.96);
+    transition: transform 0.3s ease;
+}
+/* nuevo */
+.popup.visible .popup-card {
+    transform: none;
+}
+/* nuevo */
+.popup-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--verde-oscuro);
+    text-decoration: none;
+}
+/* nuevo */
+.popup-link img {
+    width: 100%;
+    max-height: 190px;
+    object-fit: contain;
+}
+/* nuevo */
+.popup-link h2 {
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.15;
+}
+/* nuevo */
+.popup-cta {
+    padding: 12px 32px;
+    border-radius: 999px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--lima);
+    background: var(--verde-oscuro);
+    transition: background-color 0.25s ease, transform 0.15s ease;
+}
+/* nuevo */
+.popup-link:hover .popup-cta,
+.popup-link:focus-visible .popup-cta {
+    background: var(--verde-medio);
+    transform: scale(1.05);
+}
+/* nuevo */
+.popup-link:focus-visible {
+    outline: 3px solid var(--verde-medio);
+    outline-offset: 6px;
+    border-radius: 12px;
+}
+/* nuevo */
+.popup-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--verde-oscuro);
+    background: rgba(15, 61, 46, 0.12);
+    transition: background-color 0.2s ease;
+}
+/* nuevo */
+.popup-cerrar:hover {
+    background: rgba(15, 61, 46, 0.25);
+}
+/* nuevo */
+.popup-cerrar:focus-visible {
+    outline: 3px solid var(--verde-medio);
+    outline-offset: 2px;
 }

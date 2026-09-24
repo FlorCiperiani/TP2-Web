@@ -1,29 +1,45 @@
+// Pop-up de la calculadora
+(function () {
+    var popup = document.getElementById('popup-calculadora');
+    var cerrar = document.getElementById('popup-cerrar');
+    if (!popup || !cerrar) return;
 
-const form = document.getElementById('form-producto');
+    var ultimoFoco = null;
+    //nuevo
+    function abrir() {
+        ultimoFoco = document.activeElement;
+        popup.hidden = false;
+        document.body.style.overflow = 'hidden';
+        // Un frame después, para que la transición de entrada se vea
+        requestAnimationFrame(function () {
+            popup.classList.add('visible');
+        });
+        cerrar.focus();
+    }
+    //nuevo
+    function cerrarPopup() {
+        popup.classList.remove('visible');
+        document.body.style.overflow = '';
+        setTimeout(function () {
+            popup.hidden = true;
+            if (ultimoFoco && ultimoFoco.focus) ultimoFoco.focus();
+        }, 300);
+    }
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault(); // evita el envío tradicional del form
+    cerrar.addEventListener('click', cerrarPopup);
 
-    // Acá podrías leer los datos si quisieras hacer algo con ellos antes de redirigir
-    // const datos = new FormData(form);
-
-    window.location.href = 'confirmacion.html';
-});
-
-document.querySelectorAll('.campo').forEach(campo => {
-    const input = campo.querySelector('input, textarea');
-    const mensaje = campo.querySelector('.mensaje-campo');
-    if (!input || !mensaje) return;
-
-    input.addEventListener('input', () => {
-        const completo = input.value.trim() !== '' && input.checkValidity();
-
-        if (completo) {
-            campo.classList.add('completo');
-            mensaje.textContent = mensaje.dataset.textoOk;
-        } else {
-            campo.classList.remove('completo');
-            mensaje.textContent = '';
-        }
+    // Click en el fondo oscuro (fuera de la tarjeta)
+    popup.addEventListener('click', function (e) {
+        if (e.target === popup) cerrarPopup();
     });
-});
+
+    // Tecla Escape
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !popup.hidden) cerrarPopup();
+    });
+
+    // Aparece un poquito después de cargar la página
+    window.addEventListener('load', function () {
+        setTimeout(abrir, 3000);
+    });
+})();

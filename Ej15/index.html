@@ -3,65 +3,95 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Formulario</title>
     <link rel="stylesheet" href="style/styleej15.css">
-    <link rel="icon" type="image/png" href="recursos/banco.jpg">
+    <link rel="icon" type="image/png" href="recursos/bancologo.jpg">
 </head>
 
 <body>
-    <div class="layout">
+    <div class="pagina">
+        <div class="layout">
 
-        <div class="contenedor">
-            <form id="form-producto">
-                <h1>Contactanos</h1>
+            <!-- Publicidad izquierda (larga) -->
+            <!-- nuevo -->
+            <div class="ad ad-lateral">
+                <div class="tenor-gif-embed" data-postid="12735205865360221518" data-share-method="host"
+                    data-aspect-ratio="0.564257" data-width="100%"></div>
+            </div>
 
-                <div class="campo">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                    <span class="mensaje-campo" data-texto-ok="Nombre completo"></span>
-                </div>
+            <div class="contenedor">
+                <form id="form-producto" action="confirmacion.html">
+                    <h1>Contactanos</h1>
 
-                <div class="campo">
-                    <label for="apellido">Apellido:</label>
-                    <input type="text" id="apellido" name="apellido" required>
-                    <span class="mensaje-campo" data-texto-ok="Apellido completo"></span>
-                </div>
+                    <div class="campo">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                        <span class="mensaje-campo" data-texto-ok="Nombre completo"></span>
+                    </div>
 
-                <div class="campo">
-                    <label for="telefono">Teléfono:</label>
-                    <input type="text" id="telefono" name="telefono" required>
-                    <span class="mensaje-campo" data-texto-ok="Teléfono completo"></span>
-                </div>
+                    <div class="campo">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" required>
+                        <span class="mensaje-campo" data-texto-ok="Apellido completo"></span>
+                    </div>
 
-                <div class="campo">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <span class="mensaje-campo" data-texto-ok="Email válido"></span>
-                </div>
+                    <div class="campo">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" id="telefono" name="telefono" required>
+                        <span class="mensaje-campo" data-texto-ok="Teléfono completo"></span>
+                    </div>
 
-                <div class="campo campo-grande">
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                    <span class="mensaje-campo" data-texto-ok="Mensaje listo"></span>
-                </div>
-                <button type="submit" class="boton">Enviar</button>
-            </form>
+                    <div class="campo">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="mensaje-campo" data-texto-ok="Email válido"></span>
+                    </div>
+
+                    <div class="campo campo-grande">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                        <span class="mensaje-campo" data-texto-ok="Mensaje listo"></span>
+                    </div>
+                    <button type="submit" class="boton">Enviar</button>
+                </form>
+            </div>
+
+            <div class="panel-info">
+                <!--No tiene funcionalidad-->
+                <h2>Contacto directo</h2>
+                <p><strong>Dirección:</strong> C. 15 1105, L6360 Gral. Pico, La Pampa</p>
+                <p><strong>Atención al Usuario / Reclamos:</strong><br>
+                    <a href="mailto:sac@bancodelapampa.com.ar">sac@bancodelapampa.com.ar</a>
+                </p>
+                <p><strong>Teléfono:</strong><br>
+                    <a href="tel:08102222257">0810-222-2257</a>
+                </p>
+            </div>
+
         </div>
 
-        <div class="panel-info">
-            <!--No tiene funcionalidad-->
-            <h2>Contacto directo</h2>
-            <p><strong>Dirección:</strong> C. 15 1105, L6360 Gral. Pico, La Pampa</p>
-            <p><strong>Atención al Usuario / Reclamos:</strong><br>
-                <a href="mailto:sac@bancodelapampa.com.ar">sac@bancodelapampa.com.ar</a> 
-            </p>
-            <p><strong>Teléfono:</strong><br>
-                <a href="tel:08102222257">0810-222-2257</a>
-            </p>
-        </div>
-
+        <!-- Publicidad inferior (ancha) -->
+        <!-- nuevo -->
+        <a href="#" class="ad ad-inferior" aria-label="Publicidad">
+            <img src="recursos/publi2.jpg" alt="Publicidad inferior">
+        </a>
     </div>
 
+    <!-- Pop-up de la calculadora -->
+    <!-- nuevo -->
+    <div class="popup" id="popup-calculadora" role="dialog" aria-modal="true" aria-labelledby="popup-titulo" hidden>
+        <div class="popup-card">
+            <button type="button" class="popup-cerrar" id="popup-cerrar" aria-label="Cerrar">&times;</button>
+            <a href="../Ej13/index.html" class="popup-link">
+                <img src="recursos/calculadora.png" alt="Calculadora">
+                <h2 id="popup-titulo">¿Hacemo' número?</h2>
+                <span class="popup-cta">¡Calcula ahora!</span>
+            </a>
+        </div>
+    </div>
+
+    <script async src="https://tenor.com/embed.js"></script>
     <script src="script/scriptej15.js"></script>
 </body>
 

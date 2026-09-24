@@ -1,154 +1,128 @@
+/* Página de confirmación: mismo estilo que el formulario, sin publicidades */
+/* nuevo */
 * {
     box-sizing: border-box;
 }
-.confirmacion {
-    text-align: center;
+/* nuevo */
+:root {
+    --verde-oscuro: #0f3d2e;
+    --verde-medio: #1f6b4f;
+    --lima: #c7e27b;
+    --texto: #16221c;
 }
-
-.contador-label {
-    margin-top: 24px;
-    margin-bottom: 4px;
-    font-weight: bold;
-}
-
-.contador {
-    font-size: 24px;
-    font-weight: 800;
-    margin-bottom: 24px;
-}
-
-.boton-link {
-    text-decoration: none;
-    display: inline-block;
-}
+/* nuevo */
+/* ---------- Fondo ---------- */
 body {
     margin: 0;
     min-height: 100vh;
     display: grid;
     place-items: center;
+    padding: 24px;
+    font-family: 'Segoe UI', 'Lucida Sans', Verdana, sans-serif;
+    color: var(--texto);
+    /* Si la imagen no carga, se ve igual un fondo lindo */
+    background: linear-gradient(135deg, #0f3d2e 0%, #1f6b4f 60%, #3f8f5f 100%);
+}
+/* nuevo */
+/* Imagen de fondo con desenfoque leve para disimular el pixelado */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -20px;
+    z-index: -2;
     background-image: url(../recursos/banco.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: blur(3px) saturate(1.1);
 }
-
-.layout {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+/* nuevo */
+/* Capa de color por encima de la imagen */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, rgba(15, 61, 46, 0.78), rgba(15, 61, 46, 0.35));
 }
-
+/* nuevo */
+/* ---------- Tarjeta ---------- */
 .contenedor {
-    width: 700px;
-    padding: 20px;
-    border-radius: 12px;
-    background: rgba(199, 226, 123, 0.85);
+    width: 560px;
+    max-width: 100%;
+    padding: 28px;
+    border-radius: 16px;
+    background: rgba(230, 242, 189, 0.92);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
 }
-
-.panel-info {
-    width: 260px;
-    height: 552px;
-    padding: 20px;
-    border-radius: 12px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
+/* nuevo */
+.confirmacion {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    align-items: center;
+    gap: 16px;
+    padding: 40px 32px;
+    text-align: center;
 }
-
-.panel-info h2 {
+/* nuevo */
+.confirmacion p {
     margin: 0;
 }
-
-.panel-info a {
-    color: white;
-    font-weight: bold;
-}
-
+/* nuevo */
 h1 {
-    text-align: center;
+    margin: 0;
     font-size: 36px;
     font-weight: 800;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--verde-oscuro);
 }
-
-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+/* nuevo */
+.mensaje {
+    font-size: 18px;
 }
-
-form h1 {
-    grid-column: 1 / -1;
+/* nuevo */
+/* ---------- Cuenta regresiva ---------- */
+.contador {
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 26px;
+    font-weight: 700;
+    /* Los números ocupan el mismo ancho: no "tiembla" al cambiar cada segundo */
+    font-variant-numeric: tabular-nums;
+    color: var(--lima);
+    background: var(--verde-oscuro);
 }
-
-.campo {
-    display: flex;
-    flex-direction: column;
+/* nuevo */
+.fecha {
+    font-size: 14px;
+    color: var(--verde-medio);
 }
-
-.campo label {
-    text-align: left;
-    margin-bottom: 4px;
-}
-
-.campo input,
-.campo textarea {
-    width: 100%;
-    padding: 8px;
-    border-radius: 4px;
-    border: none;
-    border: 2px solid transparent;
-    /* lo que nos resaltara el campo*/
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
-}
-/* lo que nos resaltara el campo*/
-.campo input:hover,
-.campo textarea:hover {
-    border-color: #999;
-}
-/* Lo que nos dara nuestro campo en verde para indicar que esta bien */
-.campo input:focus,
-.campo textarea:focus {
-    outline: none;
-    border-color: #4caf50;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.25);
-}
-
-.campo-grande {
-    grid-column: 1 / -1;
-}
-
+/* nuevo */
+/* ---------- Botón ---------- */
 .boton {
-    grid-column: 1 / -1;
-    justify-self: center;
     border: none;
     border-radius: 20px;
     padding: 14px 48px;
     font-size: 17px;
-    color: white;
-    background-color: black;
     font-weight: bold;
+    color: white;
+    background-color: var(--verde-oscuro);
     cursor: pointer;
-    margin-top: 10px;
-    /* lo que nos resaltara el campo*/
     transition: background-color 0.25s ease, transform 0.15s ease;
 }
-/* lo que nos resaltara el campo*/
+/* nuevo */
+.boton-link {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+}
+/* nuevo */
 .boton:hover {
-    background-color: #333;
+    background-color: var(--verde-medio);
     transform: scale(1.03);
 }
-/* Cuando JS marca el campo como completo */
-.campo.completo input,
-.campo.completo textarea {
-    border-color: #2ecc71;
-    background-color: #eafbee;
-}
-.mensaje-campo {
-    font-size: 12px;
-    color: #2e8b3d;
-    min-height: 14px;
-    margin-top: 4px;
+/* nuevo */
+.boton:focus-visible {
+    outline: 3px solid var(--lima);
+    outline-offset: 3px;
 }
