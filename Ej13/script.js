@@ -304,6 +304,7 @@ document.querySelectorAll('.box').forEach(function (boton) {
 
 });
 
+//fondo
 const imagenesEfecto = [
     'recursos/gift-funciones.gif',
     'recursos/gift-que-paso-ayer.gif',
